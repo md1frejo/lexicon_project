@@ -1,7 +1,7 @@
 package jsf;
 
-import domain.PersonDomain;
-import ejb.PersonService;
+import domain.StudentDomain;
+import ejb.StudentMethods;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -14,45 +14,45 @@ import java.util.List;
 
 @ManagedBean
 @RequestScoped
-public class teacher {
+public class Student {
     private Long id;
     private String firstname;
     private String lastname;
     private String myFilter;
     @EJB
-    PersonService personService;
+    StudentMethods studentMethods;
 
-    public String addPerson(){
+    public String addStudent(){
         if (getId()==null)
-            personService.addPerson(new PersonDomain(getFirstname(),getLastname()));
+            studentMethods.addStudent(new StudentDomain(getFirstname(),getLastname()));
         else
-            personService.updatePerson(new PersonDomain(getId(),getFirstname(),getLastname()));
+            studentMethods.updateStudent(new StudentDomain(getId(),getFirstname(),getLastname()));
 
         setId(null);
         setFirstname("");
         setLastname("");
-        return "person";
+        return "Student";
     }
-    public String editPerson(Long id){
-        PersonDomain personDomain = personService.getPerson(id);
-        setId(personDomain.getId());
-        setFirstname(personDomain.getFirstName());
-        setLastname(personDomain.getLastName());
-        return "person";
+    public String editStudent(Long id){
+        StudentDomain StudentDomain = studentMethods.getStudent(id);
+        setId(StudentDomain.getId());
+        setFirstname(StudentDomain.getFirstName());
+        setLastname(StudentDomain.getLastName());
+        return "Student";
     }
-    public String removePerson(Long id){
-        personService.removePerson(id);
-        return "person";
+    public String removeStudent(Long id){
+        studentMethods.removeStudent(id);
+        return "Student";
     }
-    public List<PersonDomain> getPersons(){
+    public List<StudentDomain> getStudents(){
 
-        return personService.getPersons();
+        return studentMethods.getStudents();
     }
-    public List<PersonDomain> getPersonsFilter(){
+    public List<StudentDomain> getStudentsFilter(){
         if (myFilter==null || myFilter.equals(""))
-            return personService.getPersons();
+            return studentMethods.getStudents();
         else
-            return personService.getPersonsFirtsNameContain(myFilter);
+            return studentMethods.getStudentsFirtsNameContain(myFilter);
     }
 
     public String getSubmitButtonLabel(){

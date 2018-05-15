@@ -14,7 +14,7 @@ import java.util.List;
 
 @ManagedBean
 @RequestScoped
-public class student {
+public class Teacher {
     private Long id;
     private String firstname;
     private String lastname;
@@ -22,7 +22,7 @@ public class student {
     @EJB
     PersonService personService;
 
-    public String addStudent(){
+    public String addPerson(){
         if (getId()==null)
             personService.addPerson(new PersonDomain(getFirstname(),getLastname()));
         else
@@ -33,24 +33,24 @@ public class student {
         setLastname("");
         return "person";
     }
-    public String editStudent(Long id){
+    public String editPerson(Long id){
         PersonDomain personDomain = personService.getPerson(id);
         setId(personDomain.getId());
         setFirstname(personDomain.getFirstName());
         setLastname(personDomain.getLastName());
-        return "student";
+        return "person";
     }
-    public String removeStudent(Long id){
+    public String removePerson(Long id){
         personService.removePerson(id);
-        return "student";
+        return "person";
     }
-    public List<PersonDomain> getStudent(){
+    public List<PersonDomain> getPersons(){
 
-        return personService.getStudent();
+        return personService.getPersons();
     }
-    public List<PersonDomain> getStudentFilter(){
+    public List<PersonDomain> getPersonsFilter(){
         if (myFilter==null || myFilter.equals(""))
-            return personService.getStudent();
+            return personService.getPersons();
         else
             return personService.getPersonsFirtsNameContain(myFilter);
     }
