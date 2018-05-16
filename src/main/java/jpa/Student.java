@@ -1,7 +1,7 @@
 package jpa;
 import javax.persistence.*;
 
-
+/* Created by Halim*/
 @Entity
 public class Student {
     @Id
