@@ -40,7 +40,7 @@ public class TeacherDomain {
     }
 
     public String getEmail_adress() {
-        return getEmail_adress;
+        return email_adress;
     }
 
     public void setEmail_adress(String email_adress) {
