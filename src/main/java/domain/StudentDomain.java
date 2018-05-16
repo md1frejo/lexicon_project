@@ -3,7 +3,7 @@ package domain;
 /**
  * Created by Solidbeans on 2017-03-20.
  */
-public class StudentDomain {
+public class  StudentDomain {
     private long id;
     private String firstName;
     private String lastName;

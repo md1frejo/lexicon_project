@@ -7,16 +7,12 @@ public class TeacherDomain {
     private long id;
     private String firstName;
     private String lastName;
+    private String email_adress;
 
-    public TeacherDomain(String firstName, String lastName) {
+    public TeacherDomain(String firstName, String lastName, String email_adress) {
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    public TeacherDomain(long id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.email_adress = email_adress;
     }
 
     public long getId() {
@@ -41,5 +37,13 @@ public class TeacherDomain {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail_adress() {
+        return getEmail_adress;
+    }
+
+    public void setEmail_adress(String email_adress) {
+        this.email_adress = email_adress;
     }
 }
