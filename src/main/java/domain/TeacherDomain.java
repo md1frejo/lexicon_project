@@ -9,7 +9,8 @@ public class TeacherDomain {
     private String lastName;
     private String email_adress;
 
-    public TeacherDomain(String firstName, String lastName, String email_adress) {
+    public TeacherDomain(long id, String firstName, String lastName, String email_adress) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email_adress = email_adress;

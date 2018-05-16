@@ -8,11 +8,6 @@ public class  StudentDomain {
     private String firstName;
     private String lastName;
 
-    public StudentDomain(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
     public StudentDomain(long id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
