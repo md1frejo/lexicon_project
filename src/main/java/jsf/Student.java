@@ -1,66 +1,46 @@
 package jsf;
 
-import domain.StudentDomain;
-import ejb.StudentMethods;
+/* Created by Halim */
 
-import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import java.util.List;
-
-/**
- * Created by Solidbeans on 2017-03-20.
- */
-
-@ManagedBean
-@RequestScoped
-public class Student {
+public class StudentsBean {
     private Long id;
+    private String pnumber;
+    private String email;
     private String firstname;
     private String lastname;
-    private String myFilter;
-    @EJB
-    StudentMethods studentMethods;
+    private String password;
+    private String dateOfBirth;
+    private String telNumber;
+    private String adress;
+    private String postzip;
+    private String city;
+    private String country;
 
-    public String addStudent(){
-        if (getId()==null)
-            studentMethods.addStudent(new StudentDomain(getFirstname(),getLastname()));
-        else
-            studentMethods.updateStudent(new StudentDomain(getId(),getFirstname(),getLastname()));
 
-        setId(null);
-        setFirstname("");
-        setLastname("");
-        return "Student";
-    }
-    public String editStudent(Long id){
-        StudentDomain StudentDomain = studentMethods.getStudent(id);
-        setId(StudentDomain.getId());
-        setFirstname(StudentDomain.getFirstName());
-        setLastname(StudentDomain.getLastName());
-        return "Student";
-    }
-    public String removeStudent(Long id){
-        studentMethods.removeStudent(id);
-        return "Student";
-    }
-    public List<StudentDomain> getStudents(){
-
-        return studentMethods.getStudents();
-    }
-    public List<StudentDomain> getStudentsFilter(){
-        if (myFilter==null || myFilter.equals(""))
-            return studentMethods.getStudents();
-        else
-            return studentMethods.getStudentsFirtsNameContain(myFilter);
+    public Long getId() {
+        return id;
     }
 
-    public String getSubmitButtonLabel(){
-        if (id==null)
-            return "Add";
-        else
-            return "Update";
+    public void setId(Long id) {
+        this.id = id;
     }
+
+    public String getPnumber() {
+        return pnumber;
+    }
+
+    public void setPnumber(String pnumber) {
+        this.pnumber = pnumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getFirstname() {
         return firstname;
     }
@@ -77,19 +57,59 @@ public class Student {
         this.lastname = lastname;
     }
 
-    public Long getId() {
-        return id;
+    public String getPassword() {
+        return password;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getMyFilter() {
-        return myFilter;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setMyFilter(String myFilter) {
-        this.myFilter = myFilter;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getTelNumber() {
+        return telNumber;
+    }
+
+    public void setTelNumber(String telNumber) {
+        this.telNumber = telNumber;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getPostzip() {
+        return postzip;
+    }
+
+    public void setPostzip(String postzip) {
+        this.postzip = postzip;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
