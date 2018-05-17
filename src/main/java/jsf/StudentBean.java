@@ -2,7 +2,7 @@ package jsf;
 
 /* Created by Halim */
 
-public class StudentsBean {
+public class StudentBean {
     private Long id;
     private String pnumber;
     private String email;

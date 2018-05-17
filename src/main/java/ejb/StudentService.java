@@ -1,5 +1,7 @@
 package ejb;
+
 /* Created by Halim */
+
 import domain.StudentDomain;
 
 import javax.ejb.Local;
