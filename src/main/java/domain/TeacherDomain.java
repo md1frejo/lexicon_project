@@ -1,26 +1,27 @@
 package domain;
 
 /**
- * Created by Solidbeans on 2017-03-20.
+ * Created by Mr. Xiao on 2018-05-17.
  */
+
 public class TeacherDomain {
-    private long id;
+    private int id;
     private String firstName;
     private String lastName;
     private String email_adress;
 
-    public TeacherDomain(long id, String firstName, String lastName, String email_adress) {
+    public TeacherDomain(int id, String firstName, String lastName, String email_adress) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email_adress = email_adress;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -39,12 +40,12 @@ public class TeacherDomain {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    public String getEmail_adress() {
+    
+    public String getemail_adress() {
         return email_adress;
     }
 
-    public void setEmail_adress(String email_adress) {
+    public void setemail_adress(String email_adress) {
         this.email_adress = email_adress;
     }
 }
