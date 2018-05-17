@@ -1,7 +1,5 @@
 package domain;
 
-/*  created by Halim*/
-
 public class StudentDomain {
     private long id;
     private String pnumber;
