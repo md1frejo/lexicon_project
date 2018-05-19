@@ -38,6 +38,7 @@ public class LoginBean {
     }
 
     public String login(){
+        //should have a condition here
         return "studentspace";
     }
 
