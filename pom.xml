@@ -4,16 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>javaEE.x</groupId>
-    <artifactId>jsf-ejb-jpa</artifactId>
+    <artifactId>project</artifactId>
     <packaging>war</packaging>
-    <name>Web Examples :: JSF - EJB - JPA</name>
+    <name>Web Examples :: Lexicon</name>
     <version>1.1.0-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <build>
-        <finalName>jsf-ejb-jpa</finalName>
+        <finalName>project</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -41,6 +41,13 @@
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.jpa</artifactId>
             <version>2.6.4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>6.1</version>
         </dependency>
 
 
