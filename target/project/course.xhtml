@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+</h:head>
+<h:body style="background-image: url(resources/image/Closeup.jpg);background-repeat: no-repeat; background-size: cover; font-family: sans-serif;">
+     <h:panelGroup layout="block" styleClass="content" style="position: absolute; top: 50%; left: 50%; border-radius: 20px;
+     transform: translate(-50%,-50%); width: 750px; height: 650px; padding: 0px 0px; color: white; font-family: Calibri; box-sizing: border-box; ">
+          <h:panelGroup layout="block" styleClass="title" style=" width: 750px; height: 650px; top: 50px;border: 2px solid#ff2;border-radius: 50px; padding: 10px 10px;background: rgba(0,0,0, .8); color: darkkhaki;">
+               <h:form id="register">
+                   <h:graphicImage library="image" name="register.png" styleClass="user" style="border: 2px solid#ff2;width: 100px; height: 100px; border-radius: 50%;
+          overflow: hidden; position: absolute ;top: calc(-100px/2); left: calc(50% - 50px);"/>
+                    <h:panelGroup layout="block" styleClass="wast" style=" width: 550px; height: 500px; top: 150px; padding: 80px 80px;">
+                         <h:panelGrid columns="3" style="vertical-align: top">
+
+           background: transparent; outline: none; height: 30px; color: #fff; font-size: 16px;width: 100%; "/>
+                              <h:inputText id="course" value />
+                              <h:message for="course" style="color: red;"></h:message>Course
+           background: transparent; outline: none; height: 30px; color: #fff; font-size: 16px;width: 100%;"/>
+                              <h:message for="teacher" style="color: red;"></h:message>Teacher
+                              <h:inputText id="postzip" value="#{studentsBean.postzip}" style="border: none; border: 1px solid #fff;
+           background: transparent; outline: none; height: 30px; color: #fff; font-size: 16px;width: 100%;"/>
+                              <h:message for="student" style="color: red;"></h:message>
+                              <h:inputText id="postzip" value="#{studentsBean.postzip}" style="border: none; border: 1px solid #fff;
+                              <h:message for="agree" style="color: red;"></h:message>
+                    </h:panelGrid>
+                    </h:panelGroup>
+               </h:form>
+          </h:panelGroup>
+     </h:panelGroup>
+</h:body>
+</html>
