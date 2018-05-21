@@ -9,6 +9,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Course {
+
+    Course() {} // need to added in order to work
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -65,6 +68,5 @@ public class Course {
         this.location = location;
     }
 }
-
 
 

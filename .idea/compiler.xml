@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jsf-ejb-jpa" />
+        <module name="project" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="jsf-ejb-jpa" target="1.8" />
+      <module name="project" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
