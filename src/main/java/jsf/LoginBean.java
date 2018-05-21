@@ -1,5 +1,5 @@
 package jsf;
-//Created by Halim
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.validation.constraints.NotNull;
@@ -38,7 +38,6 @@ public class LoginBean {
     }
 
     public String login(){
-        //should have a condition here
         return "studentspace";
     }
 
