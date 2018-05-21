@@ -7,36 +7,18 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class CourseBean {
 
-    private String course_id;
-    private Long student_id;
-    private String teadher_id;
+    private Long course_id;
     private String name;
     private String start;
     private String end;
     private String location;
 
-    public String getCourse_id() {
+    public Long getCourse_id() {
         return course_id;
     }
 
-    public void setCourse_id(String course_id) {
+    public void setCourse_id(Long course_id) {
         this.course_id = course_id;
-    }
-
-    public Long getStudent_id() {
-        return student_id;
-    }
-
-    public void setStudent_id(Long student_id) {
-        this.student_id = student_id;
-    }
-
-    public String getTeadher_id() {
-        return teadher_id;
-    }
-
-    public void setTeadher_id(String teadher_id) {
-        this.teadher_id = teadher_id;
     }
 
     public String getName() {
