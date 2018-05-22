@@ -1,5 +1,4 @@
 package jsf;
-
 import domain.StudentDomain;
 import ejb.StudentService;
 
