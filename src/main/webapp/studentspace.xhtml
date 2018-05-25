@@ -9,10 +9,8 @@
 
 </h:head>
 <h:body style="background-image: url(resources/image/Closeup.jpg);background-repeat: no-repeat; background-size: cover; font-family: sans-serif;">
-    <h:panelGroup layout="block" styleClass="wast" style="position: absolute; top: 15%; left: 0%;
-                                                 width: 100%; height: 500px; ">
-    <h:panelGroup layout="block" styleClass="content" style="position: absolute; top: 5%; left: 50%;
-     transform: translate(-50%,-50%); width: 650px; height: 60px; padding: 25px 25px; box-sizing: border-box; background: rgba(0,0,0, .5);">
+    <h:panelGroup layout="block" styleClass="content" style="position: absolute; top: 4%; left: 50%;padding: 0px 0px; transform: translate(-50%,-50%);  padding: 0px 0px; box-sizing: border-box;">
+    <h:panelGroup layout="block" styleClass="content" style="width: 750px; height: 50px;  box-sizing: border-box;border: 2px solid#ff2;border-radius: 50px; background: honeydew; opacity: .8;">
 
         <h:form id="signin" styleClass="sign">
 
@@ -20,19 +18,23 @@
             <h:outputText id="username" value="" style="background: transparent; outline: none; height: 40px; color: #fff; font-size: 16px;width: 100%; margin-bottom: 20px; margin-top: 50px;"/>
             &nbsp;
             <h:commandLink action="index">
-                <h:graphicImage library="icon" name="rewind.png" styleClass="user" style="width: 40px; height: 40px; overflow: hidden; position: absolute; top: 10px; left: 580px"/>
+                <h:graphicImage library="icon" name="rewind.png" styleClass="user" style="width: 30px; height: 30px; overflow: hidden; position: absolute; top: 10px; left: 580px"/>
             </h:commandLink>
         </h:form>
     </h:panelGroup>
+    </h:panelGroup>
+
+    <h:panelGroup layout="block" styleClass="content" style="position: absolute; top: 50%; left: 50%;transform: translate(-50%,-50%); width: 750px; height: 650px; padding: 0px 0px; color: white; font-family: Calibri; box-sizing: border-box; ">
+    <h:panelGroup layout="block" styleClass="title" style=" width: 750px; height: 650px; top: 50px;border: 2px solid#ff2;border-radius: 50px; padding: 10px 10px; background: honeydew; opacity: .8; color: darkkhaki;">
 
      <h:panelGroup layout="block" styleClass="content" style="position: absolute; top: 52%; left: 50%;
-     transform: translate(-50%,-50%); width: 650px; height: 400px; padding: 10px 10px; box-sizing: border-box; background: honeydew;">
+     transform: translate(-50%,-50%); width: 650px; height: 400px; padding: 10px 10px; box-sizing: border-box;">
          <h:form id="platform">
-             <h:graphicImage library="image" name="LED.png" styleClass="user" style="width: 650px; height: 430px; overflow: hidden; position: absolute; top: 0px; left: 0px"/>
+
              <h:commandLink action="contact">
              <h:graphicImage library="icon" name="mail.png" styleClass="user" style="width: 100px; height: 100px; overflow: hidden; position: absolute; top: 66px; left: 50px"/>
              </h:commandLink>
-             <h:graphicImage library="icon" name="group.png" styleClass="user" style="width: 100px; height: 100px; overflow: hidden; position: absolute; top: 66px; left: 200px"/>
+             <h:graphicImage library="icon" name="group.png" styleClass="user" style="width: 100px; height: 100px; overflow: hidden; position: absolute; top: 66px; left: 200px; background: white"/>
              <h:graphicImage library="icon" name="internet.png" styleClass="user" style="width: 100px; height: 100px; overflow: hidden; position: absolute; top: 66px; left: 350px"/>
              <h:graphicImage library="icon" name="settings.png" styleClass="user" style="width: 100px; height: 100px; overflow: hidden; position: absolute; top: 66px; left: 500px"/>
              <h:graphicImage library="icon" name="zoom-in.png" styleClass="user" style="width: 100px; height: 100px; overflow: hidden; position: absolute; top: 232px; left: 50px"/>
@@ -42,6 +44,7 @@
 
          </h:form>
      </h:panelGroup>
+    </h:panelGroup>
     </h:panelGroup>
 </h:body>
 </html>
