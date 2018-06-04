@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+
+</h:head>
+<h:body style="background: darkslategray; background-size: cover; font-family: sans-serif;">
+    <h:panelGroup layout="block" styleClass="wast" style="position: absolute; top: 10%; left: 0%;
+                                                 width: 100%; height: 600px; background: darkcyan; ">
+
+        <h:panelGroup layout="block" styleClass="content" style="position: absolute; top: 5%; left: 50%;
+     transform: translate(-50%,-50%); width: 600px; height: 50px; padding: 25px 25px; box-sizing: border-box; background: rgba(0,0,0, .1);">
+
+        <h:form id="signin" styleClass="sign">
+
+            <h:outputLabel value="Hi! " style="font-size: 16px; font-family: Calibri; margin: 0px; padding: 0 0 30px; color: darkorange; text-align: center;"/>
+            <h:outputText id="username" value="#{connect.username}" style="background: transparent; outline: none; height: 40px; color: #fff; font-size: 16px;width: 100%; margin-bottom: 20px; margin-top: 50px;"/>
+            &nbsp;
+            <h:commandLink value= "LOG OUT" action="#{deconnect.disconnect}" style="color: darkorange; font-family: Calibri; font-size: 10px; margin-left: 450px"/>
+
+        </h:form>
+    </h:panelGroup>
+
+    <h:panelGroup layout="block" styleClass="content" style="position: absolute; top: 50%; left: 50%;
+     transform: translate(-50%,-50%); width: 600px; height: 450px; padding: 40px 40px; box-sizing: border-box; background: rgba(0,0,0, .5);">
+
+        <h:form id="platform">
+            <h:commandLink action="admin">
+                <h:graphicImage library="icon" name="rewind.png" styleClass="user" style="width: 50px; height: 50px; overflow: hidden; position: absolute; top: 10px; left: 10px"/>
+            </h:commandLink>
+            <h:commandLink action="index">
+                <h:graphicImage library="icon" name="computer.png" styleClass="user" style="width: 50px; height: 50px; overflow: hidden; position: absolute; top: 10px; left: 540px"/>
+            </h:commandLink>
+        </h:form>
+            <br/>
+            <br/>
+        <h:form styleClass="contact">
+            <h:dataTable value="#{contactform.list}" var="list" border="2"
+                         cellspacing="1" cellpadding="1">
+                <h:column>
+                    <f:facet name="header">Full Name</f:facet>
+                    #{list.fullname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    #{list.email}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Subject</f:facet>
+                    #{list.subject}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Message</f:facet>
+                    #{list.message}
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+
+    </h:panelGroup>
+    </h:panelGroup>
+</h:body>
+</html>
