@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.validation.constraints.*;
 import java.util.Date;
+import java.util.List;
 
 @ManagedBean
 @RequestScoped
@@ -56,6 +57,7 @@ public class MemberBean {
 
     @AssertTrue(message = "*")
     private boolean agree;
+    private String myFilter;
 
     @EJB
     StudentService studentService;
@@ -63,23 +65,24 @@ public class MemberBean {
     TeacherService teacherService;
 
     public void addUser() {
-        if (profil.equals("student"))
-            if (getId() == null) {
+        //if (profil.equals("student"))
+            if (getId() == null) /*{*/
                 studentService.addStudent(new StudentDomain(getPnumber(), getFirstname(), getLastname(), getDateOfBirth(), getTelNumber(), getAdress(), getPostzip(), getCity()), new UsersDomain(getEmail(), getPassword()));
 
-            } else {
+            /*} else {*/
+            else
                 studentService.updateStudent(new StudentDomain(getId(), getPnumber(), getFirstname(), getLastname(), getDateOfBirth(), getTelNumber(), getAdress(), getPostzip(), getCity()), new UsersDomain(getId(), getEmail(), getPassword()));
 
-            }
+          /*  }
         else if (getId() == null)
             teacherService.addTeacher(new TeacherDomain(getPnumber(), getFirstname(), getLastname(), getDateOfBirth(), getTelNumber(), getAdress(), getPostzip(), getCity()), new UsersDomain(getEmail(), getPassword()));
 
         else
-            teacherService.updateTeacher(new TeacherDomain(getId(), getPnumber(), getFirstname(), getLastname(), getDateOfBirth(), getTelNumber(), getAdress(), getPostzip(), getCity()), new UsersDomain(getId(), getEmail(), getPassword()));
+            teacherService.updateTeacher(new TeacherDomain(getId(), getPnumber(), getFirstname(), getLastname(), getDateOfBirth(), getTelNumber(), getAdress(), getPostzip(), getCity()), new UsersDomain(getId(), getEmail(), getPassword()));*/
 
 
 
-        setProfil("");
+
         setId(null);
         setEmail("");
         setPassword("");
@@ -96,6 +99,7 @@ public class MemberBean {
 
     public String editUser(Long id) {
         StudentDomain studentDomain = studentService.getStudent(id);
+        //UsersDomain usersDomain = studentService.getStudent(id);
         setId(studentDomain.getId());
         setPnumber(studentDomain.getPnumber());
         setFirstname(studentDomain.getFirstname());
@@ -105,6 +109,7 @@ public class MemberBean {
         setAdress(studentDomain.getAdress());
         setPostzip(studentDomain.getPostzip());
         setCity(studentDomain.getPostzip());
+
 
 
         return "user";
@@ -128,6 +133,15 @@ public class MemberBean {
         context.addMessage(null, new FacesMessage("Successful",  "new: "+profil ) );
 
     }
+    public List<UsersDomain> getUsers(){
+     return studentService.getUsers();
+    }
+   /* public List<UsersDomain> getPersonsFilter(){
+        if (myFilter==null || myFilter.equals(""))
+            return studentService.getUsers();
+        else
+            return studentService.getStudentsContain(myFilter);
+    }*/
 
 
 
@@ -234,5 +248,13 @@ public class MemberBean {
 
     public void setAgree(boolean agree) {
         this.agree = agree;
+    }
+
+    public String getMyFilter() {
+        return myFilter;
+    }
+
+    public void setMyFilter(String myFilter) {
+        this.myFilter = myFilter;
     }
 }
