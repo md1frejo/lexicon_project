@@ -12,8 +12,14 @@ import java.util.List;
 @Local
 public interface CourseService {
 
+    // administrator
+
+
+
     void addCourse(CourseDomain Course);
     void updateCourse(CourseDomain Course);
-    CourseDomain getCourse(Long id);
     void removeCourse(Long id);
+    // everyone
+    CourseDomain getCourse(Long id);
+    List<CourseDomain> getCourses(String filter);
 }
