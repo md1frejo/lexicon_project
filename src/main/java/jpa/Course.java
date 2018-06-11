@@ -1,13 +1,18 @@
 package jpa;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /* Created by Jonas */
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name="cselectAll",query="SELECT p FROM Course p"),
+        @NamedQuery(name="cselectName",query="SELECT p FROM Course p WHERE LOCATE(:filt,p.name) >0 "),
+        @NamedQuery(name="cselectStart",query="SELECT p FROM Course p WHERE LOCATE(:filt,p.start) >0 "),
+        @NamedQuery(name="cselectEnd",query="SELECT p FROM Course p WHERE LOCATE(:filt,p.end) >0 "),
+        @NamedQuery(name="cselectLocation",query="SELECT p FROM Course p WHERE LOCATE(:filt,p.location) >0 ")
+})
+
 public class Course {
     
     @Id
