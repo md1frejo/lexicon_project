@@ -1,17 +1,21 @@
 package jpa;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
 @NamedQueries({
-        //@NamedQuery(name="selectAllS",query="SELECT p FROM Student p"),
-        @NamedQuery(name="selectPNumberS",query="SELECT t FROM Student t WHERE LOCATE(:filt,t.pnumber) >0 ")
+        @NamedQuery(name="selectstudents",query="SELECT p FROM Student p"),
+        @NamedQuery(name = "All_Absence", query = "SELECT s.firstname,s.lastname,s.pnumber,p.absence,c.courseName FROM Student s inner Join Presence p inner join Lessons l inner join Courses c"),
+        @NamedQuery(name = "AbsenceByStudent", query = "SELECT s.firstname,s.lastname,s.pnumber,p.absence,c.courseName FROM Student s inner Join Presence p inner join Lessons l inner join Courses c WHERE LOCATE(:filter,s.firstname) >0"),
 
 })
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "student_id")
     private Long id;
     private String pnumber;
     private String firstname;
@@ -24,6 +28,12 @@ public class Student {
 
     @OneToOne (mappedBy = "student")
     private Login login;
+
+    @OneToMany (mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SubscriptionS> subscriptionSList = new ArrayList<SubscriptionS>();
+
+    @OneToMany (mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Presence> presenceList = new ArrayList<Presence>();
 
 
     public Student() {
@@ -38,7 +48,7 @@ public class Student {
         this.adress = adress;
         this.postzip = postzip;
         this.city = city;
-        this.login = login;
+        //this.login = login;
     }
 
     public Long getId() {
@@ -112,5 +122,21 @@ public class Student {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public List<SubscriptionS> getSubscriptionSList() {
+        return subscriptionSList;
+    }
+
+    public void setSubscriptionSList(List<SubscriptionS> subscriptionSList) {
+        this.subscriptionSList = subscriptionSList;
+    }
+
+    public List<Presence> getPresenceList() {
+        return presenceList;
+    }
+
+    public void setPresenceList(List<Presence> presenceList) {
+        this.presenceList = presenceList;
     }
 }

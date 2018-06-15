@@ -1,9 +1,9 @@
 package jpa;
 
-import domain.UsersDomain;
-
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -13,6 +13,7 @@ import java.util.Date;
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "teacher_id")
     private Long id;
     private String pnumber;
     private String firstname;
@@ -24,7 +25,10 @@ public class Teacher {
     private String city;
 
     @OneToOne (mappedBy = "teacher")
-    private Users users;
+    private Login login;
+
+    @OneToMany (mappedBy = "teacher", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Courses> coursesList = new ArrayList<Courses>();
 
     public Teacher() {
     }
@@ -114,5 +118,13 @@ public class Teacher {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public List<Courses> getCoursesList() {
+        return coursesList;
+    }
+
+    public void setCoursesList(List<Courses> coursesList) {
+        this.coursesList = coursesList;
     }
 }
