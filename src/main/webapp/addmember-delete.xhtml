@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body style="background-image: url(resources/image/Closeup.jpg);background-repeat: no-repeat; background-size: cover; font-family: sans-serif;">
+        <h:panelGroup layout="block" styleClass="content" style="position: absolute;transform: translate(-50%,-50%); top: 50%; left: 50%;">
+            <p:tooltip />
+     <h:form id="form" >
+
+
+
+
+         <p:panel header="NEW MEMBER" style="margin:40px 40px; background: rgba(1, 1, 1, .8);width: 1100px; border: none;border: 2px solid#ff7904; color: darkkhaki; font-family: Calibri ">
+
+             <p:dataTable id="basicDT" var="s" value="#{memberBean.users}">
+                 <f:facet name="header">
+                     Student informations data
+                 </f:facet>
+                 <p:column headerText="Id">
+                     <h:outputText value="#{s.id}" />
+                 </p:column>
+                 <p:column headerText="Email">
+                     <h:outputText value="#{s.email}" />
+                 </p:column>
+                 <p:column headerText="Password">
+                     <h:outputText value="#{s.password}" />
+                 </p:column>
+                 <p:column headerText="Action">
+                    <h:commandButton value="DELETE" action="#{memberBean.removeUser(s.id)}" />
+                        <!-- <f:setPropertyActionListener value="" target="" />-->
+                 </p:column>
+             </p:dataTable>
+
+             </p:panel>
+
+
+
+</h:form>
+        </h:panelGroup>
+</h:body>
+</html>

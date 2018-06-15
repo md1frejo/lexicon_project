@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui" >
+<h:head>
+
+</h:head>
+<h:body style="background-image: url(resources/css/bb.jpg);background-repeat: no-repeat;background-size: cover; font-family: sans-serif;">
+    <h:panelGroup layout="block" styleClass="content" style=" padding: 0px 50px;position: absolute;transform: translate(-50%,-50%); top: 50%; left: 50%;height: 500px; width:100%; background: rgba(1, 1, 1, .7) ;border-top: 5px solid #777777;border-bottom: 5px solid #777777;   ">
+    <h:panelGroup layout="block" styleClass="content" style=";height: 500px; width:900px;padding: 0px 0px; position: absolute;transform: translate(-50%,-50%); top: 50%; left: 50%;background: rgba(1, 1, 1, .0);font-family: 'Arial Black'; font-size: 14px ">
+        <h:form id="form" >
+
+            <p:dataTable id="dataTable" var="s" value="#{presenceBean.absenceFilterByStudent}"
+                         paginator="true" rows="5">
+                <f:facet name="header">
+                    <h:outputText value="Filter by Name"/>
+                    <h:inputText value="#{presenceBean.filter}"/>
+                    <h:commandButton action="absencebystudents" value="Search"/>
+                </f:facet>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Personal Number" />
+                    </f:facet>
+                    <h:outputText value="#{s.personal_Number}" />
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Firstname" />
+                    </f:facet>
+                    <h:outputText value="#{s.firstName}" />
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Lastname" />
+                    </f:facet>
+                    <h:outputText value="#{s.lastNmae}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Courses Name" />
+                    </f:facet>
+                    <h:outputText value="#{s.courses_Name}" />
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Number of Absence" />
+                    </f:facet>
+                    <h:outputText value="#{s.absence_Hours}" />
+                </p:column>
+            </p:dataTable>
+
+            <p:blockUI block="dataTable" trigger="dataTable">
+                LOADING<br />
+                <p:graphicImage name="demo/images/ajaxloadingbar.gif"/>
+            </p:blockUI>
+
+
+
+        </h:form>
+    </h:panelGroup>
+    </h:panelGroup>
+</h:body>
+</html>
+
+
+
+
+
+
+
